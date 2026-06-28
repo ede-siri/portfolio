@@ -1,14 +1,14 @@
 export const siteConfig = {
   name: "Edesiri Ohwomado",
   title: "Edesiri Ohwomado | Software Engineer & Builder",
-  email: "hello@edo.engineer",
+  email: "hello@edesiri.com",
   logo: "EO.",
   tagline: "Built with care, curiosity, and good music.",
   social: {
     x: "https://x.com/edesiri",
-    linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    instagram: "https://instagram.com/",
+    linkedin: "https://www.linkedin.com/in/edesirio/",
+    github: "https://github.com/ede-siri",
+    instagram: "https://instagram.com/edesiri.jpeg",
   },
   resumeUrl: "/cv.pdf",
 };
