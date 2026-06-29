@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Edesiri Ohwomado | Software Engineer & Builder",
   email: "hello@edesiri.com",
   logo: "EO.",
-  tagline: "Built with care, curiosity, and good music.",
+  tagline: "Built with care, creativity, and good music.",
   social: {
     x: "https://x.com/edesiri",
     linkedin: "https://www.linkedin.com/in/edesirio/",
