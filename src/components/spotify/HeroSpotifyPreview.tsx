@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 
 import SpotifyPreviewCard from "@/components/SpotifyPreviewCard";
-import { PLACEHOLDER_TRACKS, type SpotifyTrack } from "@/lib/spotify";
+import type { SpotifyTrack } from "@/lib/spotify";
 
 export default function HeroSpotifyPreview() {
-  const [track, setTrack] = useState<SpotifyTrack>(PLACEHOLDER_TRACKS[0]);
+  const [track, setTrack] = useState<SpotifyTrack | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -18,10 +19,11 @@ export default function HeroSpotifyPreview() {
           setTrack(data.track);
         }
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setIsLoading(false));
 
     return () => controller.abort();
   }, []);
 
-  return <SpotifyPreviewCard track={track} />;
+  return <SpotifyPreviewCard track={track} isLoading={isLoading} />;
 }

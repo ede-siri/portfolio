@@ -12,14 +12,14 @@ export const metadata: Metadata = {
     "Postcards from places I've loved — cities, views, and trips that made it out of the camera roll.",
 };
 
-export default function AboutPage() {
+export default function PostcardsPage() {
   return (
     <>
       <Header />
       <main className="pt-20">
         <div className="mx-auto w-full max-w-[1280px] px-5 pb-20 md:px-16 md:pb-28">
           <section className="border-b border-outline py-14 md:py-20">
-            <PathLabel path="~/edesiri/places" className="mb-5" />
+            <PathLabel path="~/edesiri/postcards" className="mb-5" />
             <h1 className="max-w-4xl font-display text-[2.35rem] font-medium leading-[1.08] text-on-surface md:text-[3.25rem]">
               Postcards from places I&apos;ve loved
             </h1>

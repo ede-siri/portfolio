@@ -20,13 +20,12 @@ export default function Hero() {
             <TypewriterHeading text="hi, i'm edesiri — aka siri" />
 
             <p className="mb-8 max-w-xl text-base leading-7 text-on-surface-muted md:text-lg">
-              Software engineer, builder, writer, and music lover.
+              Software engineer, builder, music lover, and chess enthusiast.
             </p>
 
             <p className="mb-10 max-w-xl text-lg leading-8 text-on-surface-muted md:text-xl">
-              I&apos;m a Computer Science graduate and Software Engineer at
-              Amazon. I build products, write about what I&apos;m learning, and
-              spend a lot of time between playlists, stock charts, flight
+            I studied Computer Science and now work as a Software Engineer at Amazon. I build products, document what I&apos;m learning, and
+              spend a lot of time between playlists, the stock market, flight
               searches, and new ideas.
             </p>
 
