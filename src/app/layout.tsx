@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import CursorIllumination from "@/components/CursorIllumination";
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="relative bg-background text-on-surface font-body text-base leading-relaxed antialiased">
         <CursorIllumination />
         <div className="relative z-[1]">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
