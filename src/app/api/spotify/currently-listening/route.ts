@@ -1,21 +1,22 @@
 import { NextResponse } from "next/server";
 
 import {
-  getCurrentlyListeningForHero,
+  getHeroRecentlyPlayedTrack,
+  HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS,
   PLACEHOLDER_TRACKS,
 } from "@/lib/spotify";
 
-export const revalidate = 300;
+export const revalidate = HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS;
 
 export async function GET() {
   try {
-    const track = await getCurrentlyListeningForHero();
+    const track = await getHeroRecentlyPlayedTrack();
 
     return NextResponse.json(
       { track },
       {
         headers: {
-          "Cache-Control": "s-maxage=300, stale-while-revalidate=600",
+          "Cache-Control": `s-maxage=${HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS}, stale-while-revalidate=${HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS * 2}`,
         },
       },
     );

@@ -41,6 +41,9 @@ export type RotationDataResponse = {
   artistsPeriod: "month" | "recent";
 };
 
+/** Hero "Recently Played" card — refresh interval (not live playback). */
+export const HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS = 7200;
+
 export const PLACEHOLDER_TRACKS: SpotifyTrack[] = [
   {
     id: "3OHfY25jxYVT3EFPeYx5cM",
@@ -693,7 +696,7 @@ export const getRecentlyPlayedForPage = cache(
   },
 );
 
-export const getCurrentlyListeningForHero = cache(
+const getCachedHeroRecentlyPlayedTrack = unstable_cache(
   async (): Promise<SpotifyTrack> => {
     if (!isSpotifyConfigured()) {
       return PLACEHOLDER_TRACKS[0];
@@ -701,18 +704,21 @@ export const getCurrentlyListeningForHero = cache(
 
     try {
       const accessToken = await getAccessToken();
-      const currentTrack = await fetchCurrentlyPlayingTrack(accessToken);
-
-      if (currentTrack) {
-        return currentTrack;
-      }
-
-      const { tracks } = await getRecentlyPlayedForPage();
+      const tracks = await fetchRecentlyPlayedTracks(accessToken, 1);
       return getHeroPreviewTrack(tracks);
     } catch {
       return PLACEHOLDER_TRACKS[0];
     }
   },
+  ["spotify-hero-recently-played"],
+  {
+    revalidate: HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS,
+    tags: ["spotify-hero-recently-played"],
+  },
+);
+
+export const getHeroRecentlyPlayedTrack = cache(
+  async (): Promise<SpotifyTrack> => getCachedHeroRecentlyPlayedTrack(),
 );
 
 export async function getRecentlyPlayed(): Promise<RecentlyPlayedResponse> {
