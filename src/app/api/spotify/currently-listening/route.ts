@@ -6,7 +6,7 @@ import {
   PLACEHOLDER_TRACKS,
 } from "@/lib/spotify";
 
-export const revalidate = HERO_RECENTLY_PLAYED_REVALIDATE_SECONDS;
+export const revalidate = 7200;
 
 export async function GET() {
   try {
