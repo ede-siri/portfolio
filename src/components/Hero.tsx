@@ -4,9 +4,9 @@ import HeroSpotifyPreview from "@/components/spotify/HeroSpotifyPreview";
 import TypewriterHeading from "@/components/TypewriterHeading";
 
 const heroLinks = [
+  { href: "/experience", path: "/experience" },
   { href: "/work", path: "/work" },
   { href: "/writing", path: "/writing" },
-  { href: "/contact", path: "/contact" },
 ] as const;
 
 export default function Hero() {
